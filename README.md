@@ -25,7 +25,7 @@ While Fusion.NET is designed to be performant enough for most applications, it m
 - **Type Safety**: Fully type-safe API with generics support throughout
 - **No Dependencies**: Written in vanilla C# with no external dependencies
 
-> **Note:** Fusion.NET is designed for single-threaded use and is not thread-safe.
+> **Note:** Fusion.NET only currently supports single-threaded use and is not thread-safe.
 
 ## Installation
 
