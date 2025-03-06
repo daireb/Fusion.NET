@@ -66,60 +66,6 @@ namespace Fusion
         #region Value Combinations
 
         /// <summary>
-        /// Combines two state objects into a computed value.
-        /// </summary>
-        /// <typeparam name="T1">The type of the first state.</typeparam>
-        /// <typeparam name="T2">The type of the second state.</typeparam>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="state1">The first state.</param>
-        /// <param name="state2">The second state.</param>
-        /// <param name="selector">The selector function to apply to both state values.</param>
-        /// <returns>A computed value that updates when either of the source states change.</returns>
-        public static Computed<TResult> Zip<T1, T2, TResult>(
-            this State<T1> state1,
-            State<T2> state2,
-            Func<T1, T2, TResult> selector)
-        {
-            return new Computed<TResult>(() => selector(state1.Value, state2.Value));
-        }
-
-        /// <summary>
-        /// Combines a state and a computed value into a new computed value.
-        /// </summary>
-        /// <typeparam name="T1">The type of the state.</typeparam>
-        /// <typeparam name="T2">The type of the computed value.</typeparam>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="state">The state.</param>
-        /// <param name="computed">The computed value.</param>
-        /// <param name="selector">The selector function to apply to both values.</param>
-        /// <returns>A computed value that updates when either of the source values change.</returns>
-        public static Computed<TResult> Zip<T1, T2, TResult>(
-            this State<T1> state,
-            Computed<T2> computed,
-            Func<T1, T2, TResult> selector)
-        {
-            return new Computed<TResult>(() => selector(state.Value, computed.Value));
-        }
-
-        /// <summary>
-        /// Combines two computed values into a new computed value.
-        /// </summary>
-        /// <typeparam name="T1">The type of the first computed value.</typeparam>
-        /// <typeparam name="T2">The type of the second computed value.</typeparam>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="computed1">The first computed value.</param>
-        /// <param name="computed2">The second computed value.</param>
-        /// <param name="selector">The selector function to apply to both computed values.</param>
-        /// <returns>A computed value that updates when either of the source computed values change.</returns>
-        public static Computed<TResult> Zip<T1, T2, TResult>(
-            this Computed<T1> computed1,
-            Computed<T2> computed2,
-            Func<T1, T2, TResult> selector)
-        {
-            return new Computed<TResult>(() => selector(computed1.Value, computed2.Value));
-        }
-
-        /// <summary>
         /// Combines multiple state objects into a computed value.
         /// </summary>
         /// <typeparam name="TResult">The type of the result.</typeparam>

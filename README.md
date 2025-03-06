@@ -79,7 +79,7 @@ var firstName = new State<string>("John");
 var lastName = new State<string>("Doe");
 
 // Combine states into a computed value
-var fullName = firstName.Zip(lastName, (first, last) => $"{first} {last}");
+var fullName = new Computed<string>(() => $"{firstName.Value} {lastName.Value}");
 
 // Chain transformations
 var greeting = fullName.Select(name => $"Hello, {name}!");

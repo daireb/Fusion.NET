@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FusionNET.Core\FusionNET.Core.csproj" />
+    <ProjectReference Include="..\Fusion.Core\Fusion.csproj" />
   </ItemGroup>
 
 </Project>

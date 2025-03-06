@@ -3,6 +3,17 @@ using System;
 namespace Fusion
 {
     /// <summary>
+    /// Interface for objects that can notify their dependents of changes.
+    /// </summary>
+    public interface INotifiable
+    {
+        /// <summary>
+        /// Notifies all dependents that this object has changed.
+        /// </summary>
+        void NotifyDependents();
+    }
+
+    /// <summary>
     /// Represents an observer that can subscribe to changes in reactive state.
     /// </summary>
     public class Observer : IDisposable
