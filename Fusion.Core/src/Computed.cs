@@ -70,16 +70,8 @@ namespace Fusion
             {
                 _isDirty = true;
                 
-                // If we're in a batch update, register this computed value as modified but don't notify yet
-                if (BatchUpdate.IsInBatchUpdate)
-                {
-                    BatchUpdate.Current.RegisterModifiedState(this);
-                }
-                else
-                {
-                    // Otherwise, notify dependents immediately
-                    NotifyDependents();
-                }
+                // Notify dependents immediately
+                NotifyDependents();
                 
                 // If there are observers, recalculate the value now and raise the event
                 if (ValueChanged != null)

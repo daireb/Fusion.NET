@@ -63,35 +63,6 @@ namespace Fusion
 
         #endregion
 
-        #region Value Combinations
-
-        /// <summary>
-        /// Combines multiple state objects into a computed value.
-        /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="selector">The selector function to apply to all state values.</param>
-        /// <param name="states">The state objects to combine.</param>
-        /// <returns>A computed value that updates when any of the source states change.</returns>
-        public static Computed<TResult> Combine<TResult>(Func<object[], TResult> selector, params IObservable[] states)
-        {
-            return new Computed<TResult>(() =>
-            {
-                var values = new object[states.Length];
-                for (int i = 0; i < states.Length; i++)
-                {
-                    if (states[i] is State<object> state)
-                        values[i] = state.Value;
-                    else if (states[i] is Computed<object> computed)
-                        values[i] = computed.Value;
-                    else
-                        throw new ArgumentException($"Item at index {i} is not a State or Computed value");
-                }
-                return selector(values);
-            });
-        }
-
-        #endregion
-
         #region Collection Operations
 
         /// <summary>

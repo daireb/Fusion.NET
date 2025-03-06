@@ -48,16 +48,8 @@ namespace Fusion
                 {
                     _value = value;
                     
-                    // If we're in a batch update, register this state as modified but don't notify yet
-                    if (BatchUpdate.IsInBatchUpdate)
-                    {
-                        BatchUpdate.Current.RegisterModifiedState(this);
-                    }
-                    else
-                    {
-                        // Otherwise, notify dependents immediately
-                        NotifyDependents();
-                    }
+                    // Notify dependents immediately
+                    NotifyDependents();
                     
                     // Always trigger the ValueChanged event immediately
                     ValueChanged?.Invoke(this, _value);

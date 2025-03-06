@@ -139,8 +139,7 @@ namespace Fusion.Tests
             var c = new State<int>(3);
             
             // Act
-            var combined = ReactiveExtensions.Combine(values => 
-                (int)values[0] + (int)values[1] + (int)values[2], a, b, c);
+            var combined = new Computed<int>(() => a.Value + b.Value + c.Value);
             
             // Assert
             Assert.Equal(6, combined.Value); // 1 + 2 + 3 = 6
@@ -154,8 +153,7 @@ namespace Fusion.Tests
             var b = new State<int>(2);
             var c = new State<int>(3);
             
-            var combined = ReactiveExtensions.Combine(values => 
-                (int)values[0] + (int)values[1] + (int)values[2], a, b, c);
+            var combined = new Computed<int>(() => a.Value + b.Value + c.Value);
             
             // Act & Assert
             a.Value = 10;
