@@ -3,17 +3,6 @@ using System;
 namespace Fusion
 {
     /// <summary>
-    /// Interface for objects that can notify their dependents of changes.
-    /// </summary>
-    public interface INotifiable
-    {
-        /// <summary>
-        /// Notifies all dependents that this object has changed.
-        /// </summary>
-        void NotifyDependents();
-    }
-
-    /// <summary>
     /// Represents an observer that can subscribe to changes in reactive state.
     /// </summary>
     public class Observer : IDisposable
@@ -27,57 +16,29 @@ namespace Fusion
         }
 
         /// <summary>
-        /// Creates an observer that reacts to changes in the specified state.
+        /// Creates an observer that reacts to changes in the specified reactive value.
         /// </summary>
-        /// <typeparam name="T">The type of the state.</typeparam>
-        /// <param name="state">The state to observe.</param>
-        /// <param name="callback">The callback to execute when the state changes.</param>
+        /// <typeparam name="T">The type of the value.</typeparam>
+        /// <param name="reactive">The reactive value to observe.</param>
+        /// <param name="callback">The callback to execute when the value changes.</param>
         /// <returns>An observer that can be disposed to stop observing.</returns>
-        public static Observer Create<T>(State<T> state, Action<T> callback)
+        public static Observer Create<T>(IReactive<T> reactive, Action<T> callback)
         {
-            if (state == null) throw new ArgumentNullException(nameof(state));
+            if (reactive == null) throw new ArgumentNullException(nameof(reactive));
             if (callback == null) throw new ArgumentNullException(nameof(callback));
 
             // Execute callback with initial value
-            callback(state.Value);
+            callback(reactive.Value);
 
             // Create observer
-            var observer = new Observer(() => callback(state.Value));
+            var observer = new Observer(() => callback(reactive.Value));
             
-            // Subscribe to state changes
+            // Subscribe to value changes
             EventHandler<T> handler = (sender, value) => observer._callback();
-            state.ValueChanged += handler;
+            reactive.ValueChanged += handler;
 
             // Store cleanup logic in the Dispose method
-            observer._onDispose = () => state.ValueChanged -= handler;
-            
-            return observer;
-        }
-
-        /// <summary>
-        /// Creates an observer that reacts to changes in the specified computed value.
-        /// </summary>
-        /// <typeparam name="T">The type of the computed value.</typeparam>
-        /// <param name="computed">The computed value to observe.</param>
-        /// <param name="callback">The callback to execute when the computed value changes.</param>
-        /// <returns>An observer that can be disposed to stop observing.</returns>
-        public static Observer Create<T>(Computed<T> computed, Action<T> callback)
-        {
-            if (computed == null) throw new ArgumentNullException(nameof(computed));
-            if (callback == null) throw new ArgumentNullException(nameof(callback));
-
-            // Execute callback with initial value
-            callback(computed.Value);
-
-            // Create observer
-            var observer = new Observer(() => callback(computed.Value));
-            
-            // Subscribe to computed value changes
-            EventHandler<T> handler = (sender, value) => observer._callback();
-            computed.ValueChanged += handler;
-
-            // Store cleanup logic in the Dispose method
-            observer._onDispose = () => computed.ValueChanged -= handler;
+            observer._onDispose = () => reactive.ValueChanged -= handler;
             
             return observer;
         }

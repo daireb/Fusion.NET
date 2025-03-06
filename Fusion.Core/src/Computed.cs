@@ -9,7 +9,7 @@ namespace Fusion
     /// Represents a computed value that automatically updates when its dependencies change.
     /// </summary>
     /// <typeparam name="T">The type of value computed.</typeparam>
-    public class Computed<T> : IObservable, IDependent, INotifiable
+    public class Computed<T> : IDependent, IReactive<T>
     {
         private readonly Func<T> _computeFunc;
         private T _cachedValue;

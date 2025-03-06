@@ -9,7 +9,7 @@ namespace Fusion
     /// Represents a reactive state container that notifies dependents when its value changes.
     /// </summary>
     /// <typeparam name="T">The type of value stored in the state.</typeparam>
-    public class State<T> : IObservable, INotifiable
+    public class State<T> : IReactive<T>
     {
         private T _value;
         private readonly HashSet<IDependent> _dependents = new HashSet<IDependent>();

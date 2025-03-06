@@ -5,6 +5,63 @@ using System.Linq;
 namespace Fusion
 {
     /// <summary>
+    /// Interface for objects that depend on observables.
+    /// </summary>
+    public interface IDependent
+    {
+        /// <summary>
+        /// Invalidates the current value, causing a recalculation when next accessed.
+        /// </summary>
+        void Invalidate();
+    }
+
+    /// <summary>
+    /// Interface for objects that can notify dependents of changes.
+    /// </summary>
+    public interface IObservable
+    {
+        /// <summary>
+        /// Adds a dependent to this observable.
+        /// </summary>
+        /// <param name="dependent">The dependent to add.</param>
+        void AddDependent(IDependent dependent);
+
+        /// <summary>
+        /// Removes a dependent from this observable.
+        /// </summary>
+        /// <param name="dependent">The dependent to remove.</param>
+        void RemoveDependent(IDependent dependent);
+    }
+
+    /// <summary>
+    /// Interface for objects that can notify their dependents of changes.
+    /// </summary>
+    public interface INotifiable
+    {
+        /// <summary>
+        /// Notifies all dependents that this object has changed.
+        /// </summary>
+        void NotifyDependents();
+    }
+
+    /// <summary>
+    /// Represents a reactive value that can be observed and notifies dependents when its value changes.
+    /// </summary>
+    /// <typeparam name="T">The type of value contained.</typeparam>
+    public interface IReactive<T> : IObservable, INotifiable
+    {
+        /// <summary>
+        /// Gets the current value.
+        /// </summary>
+        T Value { get; }
+
+        /// <summary>
+        /// Event that is raised when the value changes.
+        /// </summary>
+        event EventHandler<T> ValueChanged;
+    }
+    
+    /// <summary>
     /// Static class for tracking dependencies during computation.
     /// </summary>
     public static class DependencyTracker
@@ -54,34 +111,5 @@ namespace Fusion
                 observable.AddDependent(CurrentDependent);
             }
         }
-    }
-
-    /// <summary>
-    /// Interface for objects that can notify dependents of changes.
-    /// </summary>
-    public interface IObservable
-    {
-        /// <summary>
-        /// Adds a dependent to this observable.
-        /// </summary>
-        /// <param name="dependent">The dependent to add.</param>
-        void AddDependent(IDependent dependent);
-
-        /// <summary>
-        /// Removes a dependent from this observable.
-        /// </summary>
-        /// <param name="dependent">The dependent to remove.</param>
-        void RemoveDependent(IDependent dependent);
-    }
-
-    /// <summary>
-    /// Interface for objects that depend on observables.
-    /// </summary>
-    public interface IDependent
-    {
-        /// <summary>
-        /// Invalidates the current value, causing a recalculation when next accessed.
-        /// </summary>
-        void Invalidate();
     }
 }
