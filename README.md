@@ -15,9 +15,6 @@ Fusion.NET prioritizes developer experience and code readability over raw perfor
 
 While Fusion.NET is designed to be performant enough for most applications, it makes trade-offs favoring developer experience rather than maximum performance. For extremely performance-critical applications, you might need a more specialized solution.
 
-I built Fusion.NET for compatibility with .NETstandard 2.1 and above. The reason for this is singular: it's compatible with [H5](https://github.com/curiosity-ai/h5), which I needed for the project I was working on when I made this.
-For this reason, feel free to update the project to .NET 5 or .NET 6, but I won't be doing it myself.
-
 ## Features
 
 - **Reactive State Containers**: Create observable state that automatically notifies dependents when values change
