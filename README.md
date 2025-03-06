@@ -20,7 +20,6 @@ While Fusion.NET is designed to be performant enough for most applications, it m
 - **Reactive State Containers**: Create observable state that automatically notifies dependents when values change
 - **Computed Values**: Define values that are derived from other state and automatically update when dependencies change
 - **Dependency Tracking**: Automatic tracking of dependencies between states and computed values
-- **Batch Updates**: Group multiple state changes to optimise performance and avoid unnecessary updates
 - **Extension Methods**: Comprehensive set of LINQ-like extension methods for transforming reactive state
 - **Type Safety**: Fully type-safe API with generics support throughout
 - **No Dependencies**: Written in vanilla C# with no external dependencies
@@ -59,14 +58,6 @@ countMessage.Subscribe(msg => Console.WriteLine(msg));
 
 // Update state values
 count.Value = 1; // Triggers updates to countDoubled, countMessage, and observers
-
-// Batch multiple updates to avoid intermediate notifications
-using (var batch = BatchUpdate.Start())
-{
-    count.Value = 2;
-    message.Value = "Greetings";
-    // Dependents will only be notified once, after the batch completes
-}
 
 // Remember: All operations should be performed on a single thread
 ```
@@ -112,17 +103,6 @@ var newList = new List<string>(items.Value) { "Dragonfruit" };
 items.Value = newList; // Triggers update to all derived computations
 ```
 
-## Advanced Usage: Batch Updates
-
-```csharp
-// Multiple updates without intermediate reactions
-BatchUpdate.Execute(() => {
-    firstName.Value = "Jane";
-    lastName.Value = "Smith";
-    // fullName will only be recalculated once after both changes
-});
-```
-
 ## Architecture
 
 Fusion.NET is built around a few core concepts:
@@ -130,7 +110,6 @@ Fusion.NET is built around a few core concepts:
 - **State\<T>**: A container for reactive values
 - **Computed\<T>**: A derived value that automatically updates when its dependencies change
 - **Observer**: Subscribes to changes in state or computed values
-- **BatchUpdate**: Manages transactions of multiple state changes
 - **DependencyTracker**: Handles the dependency graph and automatic tracking
 
 ## Project Status
