@@ -13,7 +13,7 @@ Fusion.NET prioritizes developer experience and code readability over raw perfor
 - **Predictable Behavior**: Reactive updates follow an understandable pattern
 - **Composability**: Reactive elements can be easily combined and transformed
 
-While Fusion.NET is designed to be performant enough for most applications, it makes trade-offs favoring developer experience rather than maximum performance. For extremely performance-critical applications, you might need a more specialized solution.# Fusion.NET
+While Fusion.NET is designed to be performant enough for most applications, it makes trade-offs favoring developer experience rather than maximum performance. For extremely performance-critical applications, you might need a more specialized solution.
 
 ## Features
 
