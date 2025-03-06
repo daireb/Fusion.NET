@@ -1,3 +1,9 @@
+# Fusion.NET
+
+Fusion.NET is a lightweight, reactive state management library for .NET applications. It provides a simple and elegant way to create reactive applications with automatic dependency tracking and state propagation.
+
+Fusion.NET focuses on being user-friendly and reducing boilerplate code rather than prioritizing raw performance. It's inspired by [Fusion on Roblox](https://elttob.uk/Fusion/), created by elttob.
+
 ## Philosophy
 
 Fusion.NET prioritizes developer experience and code readability over raw performance. Its design goals include:
@@ -8,10 +14,6 @@ Fusion.NET prioritizes developer experience and code readability over raw perfor
 - **Composability**: Reactive elements can be easily combined and transformed
 
 While Fusion.NET is designed to be performant enough for most applications, it makes trade-offs favoring developer experience rather than maximum performance. For extremely performance-critical applications, you might need a more specialized solution.# Fusion.NET
-
-Fusion.NET is a lightweight, reactive state management library for .NET applications. It provides a simple and elegant way to create reactive applications with automatic dependency tracking and state propagation.
-
-Fusion.NET focuses on being user-friendly and reducing boilerplate code rather than prioritizing raw performance. It's inspired by [Fusion on Roblox](https://elttob.uk/Fusion/), created by elttob.
 
 ## Features
 
