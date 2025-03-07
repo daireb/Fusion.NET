@@ -1,8 +1,8 @@
 # Reactor
 
-Reactor is a lightweight, reactive state management library for .NET applications. It provides a simple and elegant way to create reactive applications with automatic dependency tracking and state propagation.
+Reactor is a lightweight, reactive state management library for .NET applications inspired by [Fusion for luau](https://elttob.uk/Reactor/). It provides a simple and elegant way to create reactive applications with automatic dependency tracking and state propagation.
 
-Reactor focuses on being user-friendly and reducing boilerplate code rather than prioritizing raw performance. It's inspired by [Reactor on Roblox](https://elttob.uk/Reactor/), created by [elttob](https://github.com/Elttob).
+Reactor focuses on being user-friendly and reducing boilerplate code rather than prioritizing raw performance.
 
 ## Why Reactor?
 
