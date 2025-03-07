@@ -1,6 +1,6 @@
 using System;
 
-namespace Fusion
+namespace Reactor
 {
     /// <summary>
     /// Represents an observer that can subscribe to changes in reactive state.

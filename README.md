@@ -1,19 +1,19 @@
-# Fusion.NET
+# Reactor
 
-Fusion.NET is a lightweight, reactive state management library for .NET applications. It provides a simple and elegant way to create reactive applications with automatic dependency tracking and state propagation.
+Reactor is a lightweight, reactive state management library for .NET applications. It provides a simple and elegant way to create reactive applications with automatic dependency tracking and state propagation.
 
-Fusion.NET focuses on being user-friendly and reducing boilerplate code rather than prioritizing raw performance. It's inspired by [Fusion on Roblox](https://elttob.uk/Fusion/), created by [elttob](https://github.com/Elttob).
+Reactor focuses on being user-friendly and reducing boilerplate code rather than prioritizing raw performance. It's inspired by [Reactor on Roblox](https://elttob.uk/Reactor/), created by [elttob](https://github.com/Elttob).
 
-## Why Fusion.NET?
+## Why Reactor?
 
-Fusion.NET prioritizes developer experience and code readability over raw performance. Its design goals include:
+Reactor prioritizes developer experience and code readability over raw performance. Its design goals include:
 
 - **Minimal Boilerplate**: Write reactive code with minimal ceremony
 - **Intuitive API**: Clear, consistent and discoverable methods and properties
 - **Predictable Behavior**: Reactive updates follow an understandable pattern
 - **Composability**: Reactive elements can be easily combined and transformed
 
-While Fusion.NET is designed to be performant enough for most applications, it makes trade-offs favoring developer experience rather than maximum performance. For extremely performance-critical applications, you might need a more specialized solution.
+While Reactor is designed to be performant enough for most applications, it makes trade-offs favoring developer experience rather than maximum performance. For extremely performance-critical applications, you might need a more specialized solution.
 
 ## Features
 
@@ -24,23 +24,23 @@ While Fusion.NET is designed to be performant enough for most applications, it m
 - **Type Safety**: Fully type-safe API with generics support throughout
 - **No Dependencies**: Written in vanilla C# with no external dependencies
 
-> **Note:** Fusion.NET only currently supports single-threaded use and is not thread-safe.
+> **Note:** Reactor only currently supports single-threaded use and is not thread-safe.
 
 ## Installation
 
-Fusion.NET is currently available only via GitHub. To use it in your project:
+Reactor is currently available only via GitHub. To use it in your project:
 
 1. Clone this repository
 2. Reference the project in your solution
 
 ```bash
-git clone https://github.com/daireb/Fusion.NET.git
+git clone https://github.com/daireb/Reactor.git
 ```
 
 ## Basic Usage
 
 ```csharp
-using Fusion;
+using Reactor;
 
 // Create reactive state
 var count = new State<int>(0);
@@ -105,7 +105,7 @@ items.Value = newList; // Triggers update to all derived computations
 
 ## Architecture
 
-Fusion.NET is built around a few core concepts:
+Reactor is built around a few core concepts:
 
 - **State\<T>**: A container for reactive values
 - **Computed\<T>**: A derived value that automatically updates when its dependencies change
@@ -114,7 +114,7 @@ Fusion.NET is built around a few core concepts:
 
 ## Project Status
 
-Fusion.NET is currently in active development. API may change before reaching version 1.0.
+Reactor is currently in active development. API may change before reaching version 1.0.
 
 ## Requirements
 

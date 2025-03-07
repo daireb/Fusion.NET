@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Fusion
+namespace Reactor
 {
     /// <summary>
     /// Contains extension methods for working with reactive state.

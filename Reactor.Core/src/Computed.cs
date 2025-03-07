@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace Fusion
+namespace Reactor
 {
     /// <summary>
     /// Represents a computed value that automatically updates when its dependencies change.

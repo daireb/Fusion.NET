@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace Fusion
+namespace Reactor
 {
     /// <summary>
     /// Represents a reactive state container that notifies dependents when its value changes.

@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Fusion.Core\Fusion.csproj" />
+    <ProjectReference Include="..\Reactor.Core\Reactor.csproj" />
   </ItemGroup>
 
 </Project>

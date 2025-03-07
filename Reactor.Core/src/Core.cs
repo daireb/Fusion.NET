@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Fusion
+namespace Reactor
 {
     /// <summary>
     /// Interface for objects that depend on observables.
